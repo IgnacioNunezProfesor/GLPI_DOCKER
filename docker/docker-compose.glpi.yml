@@ -9,7 +9,7 @@ services:
       MYSQL_USER: glpi
       MYSQL_PASSWORD: glpipass
     volumes:
-      - glpi_db_data:/var/lib/mysql
+      - ../glpi_db_data:/var/lib/mysql
 
   glpi:
     image: glpi/glpi
@@ -26,7 +26,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - .\glpi_data:/var/www/html
+      - ../glpi_data:/var/www/html
 
   db_ocs:
     image: mariadb:10.11
@@ -38,7 +38,7 @@ services:
       MYSQL_USER: ocs
       MYSQL_PASSWORD: ocspass
     volumes:
-      - .\ocs_db_data:/var/lib/mysql
+      - ../ocs_db_data:/var/lib/mysql
 
   ocs:
     image: ocsinventory/ocsinventory-docker-image:latest
@@ -54,10 +54,4 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - .\ocs_data:/var/lib/ocsinventory-reports
-
-volumes:
-  glpi_db_data:
-  glpi_data:
-  ocs_db_data:
-  ocs_data:
+      - ../ocs_data:/var/lib/ocsinventory-reports
