@@ -24,10 +24,10 @@ Este proyecto está diseñado para:
 ```
 GLPI+OCS/
 ├── docker/
-│   ├── docker-compose.glpi.yml      # Configuración principal de Docker Compose
-│   ├── glpi_data/                   # Volumen persistente para datos de GLPI
-│   ├── ocs_data/                    # Volumen persistente para datos de OCS
-│   └── ocs_db_data/                 # Volumen persistente para BD de OCS
+│   └── docker-compose.glpi.yml      # Configuración principal de Docker Compose
+├── glpi_data/                   # Volumen persistente para datos de GLPI
+├── ocs_data/                    # Volumen persistente para datos de OCS
+├── ocs_db_data/                 # Volumen persistente para BD de OCS
 ├── scripts/
 │   └── start-docker-compose.ps1     # Script PowerShell para gestionar servicios
 └── README.md                         # Este archivo
