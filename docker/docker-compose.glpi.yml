@@ -24,34 +24,6 @@ services:
       GLPI_DB_USER: glpi
       GLPI_DB_PASSWORD: glpipass
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ../glpi_data:/var/www/html
-
-  db_ocs:
-    image: mariadb:10.11
-    container_name: ocs_db
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: ocsroot
-      MYSQL_DATABASE: ocsdb
-      MYSQL_USER: ocs
-      MYSQL_PASSWORD: ocspass
-    volumes:
-      - ../ocs_db_data:/var/lib/mysql
-
-  ocs:
-    image: ocsinventory/ocsinventory-docker-image:latest
-    container_name: ocs_server
-    restart: unless-stopped
-    depends_on:
-      - db_ocs
-    environment:
-      OCS_DB_SERVER: ocs_db
-      OCS_DB_NAME: ocsdb
-      OCS_DB_USER: ocs
-      OCS_DB_PWD: ocspass
-    ports:
-      - "8081:80"
-    volumes:
-      - ../ocs_data:/var/lib/ocsinventory-reports
