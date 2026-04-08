@@ -7,7 +7,7 @@ param(
 )
 
 # Obtener el directorio raíz del proyecto
-$scriptPath = Split-Path -Parent $MyInvocation.MyCommandPath
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = Split-Path -Parent $scriptPath
 $dockerComposePath = Join-Path $projectRoot "docker" "docker-compose.glpi.yml"
 
